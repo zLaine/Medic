@@ -80,7 +80,7 @@ window.onload = function()
         
          for (var i = 1; i < numInjuries; i++)
         {
-            var injury = injuries.create(game.rnd.integerInRange(323, 478), game.rnd.integerInRange(50, 595), 'blood');
+            var injury = injuries.create(game.rnd.integerInRange(333, 468), game.rnd.integerInRange(50, 595), 'blood');
             injury.name = 'injury' + i;
             injury.body.immovable = true;
             injury.inputEnabled = true;
