@@ -91,7 +91,7 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(bandageArr[numInjuries - 1].exists == true)
+        /*if(bandageArr[numInjuries - 1].exists == true)
         {
             
             for(var i = 0; i < (numInjuries - 1); i++)
@@ -106,12 +106,12 @@ window.onload = function()
                     }
                 }
             }
-        }
+        } */
         
-        /*if(overlap(injuries, bandages))
+        if(overlap(injuries, bandages))
         {
             collisionHandler.call(injuries, injuries, bandages);
-        } */
+        } 
 
         if(numInjuries <= 0)
         {
