@@ -166,7 +166,7 @@ window.onload = function()
         
         savedText.text = '' + peopleSaved;
         
-        var thisText = game.add.text(772, 183, '' + this, style);
+        var thisText = game.add.text(752, 203, '' + this, style);
         
         injury.destroy();
         bandage.destroy();
