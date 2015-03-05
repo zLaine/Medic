@@ -91,7 +91,7 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(bandageArr[0] != 0)
+        if(bandageArr[numInjuries - 1].exists == true)
         {
             
             for(var i = 0; i < 5; i++)
