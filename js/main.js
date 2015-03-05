@@ -102,7 +102,7 @@ window.onload = function()
                     {
                         alert(injuryArr[i]);
                         alert(bandageArr[j]);
-                        collisionHandler(injuryArr[i], bandageArr[j], i, j);
+                        collisionHandler(injuryArr[i], injuryArr[i], i, j);
                     }
                 }
             }
