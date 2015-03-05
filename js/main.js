@@ -91,9 +91,9 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        for(int i = 0; i < 5; i++)
+        for(var i = 0; i < 5; i++)
         {
-            for(int j = 0; j < 5; j++)
+            for(var j = 0; j < 5; j++)
             {
                 if(overlap(injuryArr[i], bandageArr[i]))
                 {
