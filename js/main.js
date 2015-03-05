@@ -23,8 +23,8 @@ window.onload = function()
     var bandages;
     var numInjuries;
     var injuriesLeft;
-    var injuryArr;
-    var bandageArr;
+    var injuryArr = [];
+    var bandageArr = [];
     
     var style;
     var timeText;
