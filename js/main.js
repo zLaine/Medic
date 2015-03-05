@@ -75,20 +75,6 @@ window.onload = function()
     
     function update() 
     {
-        if(!game.physics.arcade.collide(injuries, body) && injury1.exists)
-        {
-            //injury1.kill();
-            injury2.kill();
-            injury3.kill();
-            injury4.kill();
-            injury5.kill();
-            bandage1.kill();
-            bandage2.kill();
-            bandage3.kill();
-            bandage4.kill();
-            bandage5.kill();
-            newPerson();
-        }
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         
     }
@@ -101,6 +87,9 @@ window.onload = function()
          for (var i = 1; i < numInjuries; i++)
         {
             var injury = injuries.create(game.rnd.integerInRange(333, 468), game.rnd.integerInRange(50, 595), 'blood');
+            x = injury.x;
+            y = injury.y;
+            for(int i = ; injury.x)
             injury.name = 'injury' + i;
             injury.body.immovable = true;
             injury.inputEnabled = true;
@@ -149,5 +138,9 @@ window.onload = function()
             newPerson();
         }
     }
-     
+    
+    function render() 
+    {
+        game.debug.inputInfo(32, 32);
+    }
 };
