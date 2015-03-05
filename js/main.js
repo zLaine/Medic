@@ -7,8 +7,8 @@ window.onload = function()
     
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
 
-    const var TIMER = 30;
-    const var SAVED_BONUS = 5;
+    var TIMER = 30;
+    var SAVED_BONUS = 5;
     
    // var bandage;
     var body;
