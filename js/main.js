@@ -7,22 +7,26 @@ window.onload = function()
     
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, render: render } );
 
-    var TIMER = 30;
+    var TIMER_START = 30;
     var SAVED_BONUS = 5;
     var INJURY_RANGE_MIN = 333;
     var INJURY_RANGE_MAX = 468;
     
-   // var bandage;
     var body;
- //   var blood;
     var background;
     var bgm;
-    var timeleft = TIMER;
+    
+    var timer;
+    var timeleft = TIMER_START;
     var peopleSaved = 0;
     var injuries;
     var bandages;
     var numInjuries;
     var injuriesLeft;
+    
+    var style;
+    var timeText;
+    var savedText;
     
     var x;
     var y;
@@ -50,6 +54,11 @@ window.onload = function()
         bgm.loop = true;
    //     bgm.play();
    
+        //text set up
+        style = { font: "20px Times New Roman", fill: "#000000", align: "left" };
+        timeText = game.add.text(550, 55, '' + timeLeft, style);
+        savedText = game.add.text(575, 250, '' + peopleSaved, style);
+   
         game.physics.arcade.enable(body);
         body.enableBody = true;
         body.physicsBodyType = Phaser.Physics.ARCADE;
@@ -69,7 +78,8 @@ window.onload = function()
     //    background.events.onInputDown.add(arrowRelease, this);
         
         newPerson();
-
+    
+        timer = game.time.events.add(Phaser.Timer.SECOND * 4, gameOver, this);
 
        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
         
@@ -84,6 +94,10 @@ window.onload = function()
         }
         
     }
+    function gameOver()
+    {
+        
+    }
      
      function newPerson()
      {
@@ -95,7 +109,7 @@ window.onload = function()
             var injury = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
             x = injury.x;
             y = injury.y;
-            while(injury.x > 378 && injury.x < 426 && injury.y > 435)
+            while((injury.x > 378 && injury.x < 426 && injury.y > 435))
             {
                 injury.x = game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX);
                 injury.y = game.rnd.integerInRange(50, 595);
