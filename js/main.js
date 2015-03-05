@@ -94,9 +94,9 @@ window.onload = function()
         if(bandageArr[numInjuries - 1].exists == true)
         {
             
-            for(var i = 0; i < 5; i++)
+            for(var i = 0; i < (numInjuries - 1); i++)
             {
-                for(var j = 0; j < 5; j++)
+                for(var j = 0; j < (numInjuries - 1); j++)
                 {
                     if(overlap(injuryArr[i], bandageArr[j]))
                     {
