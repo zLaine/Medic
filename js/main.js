@@ -89,6 +89,7 @@ window.onload = function()
     {
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
+        
         if(overlap(injury, bandage))
         {
             collisionHandler(injury, bandage);
