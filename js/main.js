@@ -91,27 +91,27 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        /*if(bandageArr[numInjuries - 1].exists == true)
+        if(bandageArr[numInjuries - 1].exists == true)
         {
             
             for(var i = 0; i < (numInjuries - 1); i++)
             {
                 for(var j = 0; j < (numInjuries - 1); j++)
                 {
-                    if(overlap(injuryArr[i], bandageArr[j]))
+                    if(overlap(injuries, bandages))
                     {
                         alert(injuryArr[i]);
                         alert(bandageArr[j]);
-                        collisionHandler(injuryArr[i], injuryArr[i], i, j);
+                        collisionHandler(injuryArr[i], bandageArr[j], i, j);
                     }
                 }
             }
         } */
         
-        if(overlap(injuries, bandages))
+      /*  if(overlap(injuries, bandages))
         {
-            collisionHandler.call(injuryArr[i], injuryArr[i], i, j);
-        } 
+            collisionHandler.call(injuryArr[i], bandageArr[j], i, j);
+        } */
 
         if(numInjuries <= 0)
         {
