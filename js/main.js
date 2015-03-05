@@ -173,6 +173,7 @@ window.onload = function()
         
         if(injuriesLeft <= 0)
         {
+            alert('newPerson in collisionHandler activated');
             newPerson();
         }
     }
