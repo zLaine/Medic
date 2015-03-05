@@ -92,7 +92,7 @@ window.onload = function()
         
         if(overlap(injuries, bandages))
         {
-            collisionHandler(injuries, bandages);
+            collisionHandler(injuries, bandages, injuries);
         }
 
     //    game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
@@ -159,10 +159,14 @@ window.onload = function()
         arrShoot.start();
      } */
      
-     function collisionHandler (injury, bandage) 
+     function collisionHandler (injury, bandage, this) 
     {
         peopleSaved += 1;
         injuriesLeft -= 1;
+        
+        savedText.text = '' + peopleSaved;
+        
+        var thisText = game.add.text(772, 183, '' + this, style);
         
         injury.destroy();
         bandage.destroy();
