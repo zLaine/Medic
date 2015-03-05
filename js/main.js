@@ -58,18 +58,18 @@ window.onload = function()
         game.physics.arcade.enable(injuries);
         injuries.enableBody = true;
         injuries.physicsBodyType = Phaser.Physics.ARCADE;
-        injury.body.immovable = true;
-        injury.inputEnabled = true;
-        injury.scale.set(.5);
+        injuries.body.immovable = true;
+        injuries.inputEnabled = true;
+        injuries.scale.set(.5);
         
         bandages = game.add.group();
         game.physics.arcade.enable(bandages);
         bandages.enableBody = true;
         bandages.physicsBodyType = Phaser.Physics.ARCADE;
-        bandage.body.immovable = false;
-        bandage.inputEnabled = true;
-        bandage.input.enableDrag(false, true);
-        bandage.scale.set(.5);
+        bandages.body.immovable = false;
+        bandages.inputEnabled = true;
+        bandages.input.enableDrag(false, true);
+        bandages.scale.set(.5);
         // allows mouse clicks
     //    background.events.onInputDown.add(arrowRelease, this);
         
