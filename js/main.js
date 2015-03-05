@@ -92,7 +92,7 @@ window.onload = function()
         
         if(overlap(injuries, bandages))
         {
-            collisionHandler(injuries, bandages, injuries);
+            collisionHandler(injuries, bandages);
         }
 
     //    game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
@@ -159,7 +159,7 @@ window.onload = function()
         arrShoot.start();
      } */
      
-     function collisionHandler (injury, bandage, this) 
+     function collisionHandler (injury, bandage) 
     {
         peopleSaved += 1;
         injuriesLeft -= 1;
@@ -177,12 +177,12 @@ window.onload = function()
         }
     }
     
-    function overlap(spriteA, spriteB) {
-
-    var boundsA = spriteA.getBounds();
-    var boundsB = spriteB.getBounds();
-
-    return Phaser.Rectangle.intersects(boundsA, boundsB);
+    function overlap(spriteA, spriteB) 
+    {
+        var boundsA = spriteA.getBounds();
+        var boundsB = spriteB.getBounds();
+    
+        return Phaser.Rectangle.intersects(boundsA, boundsB);
 
     }
     
