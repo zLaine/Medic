@@ -79,7 +79,7 @@ window.onload = function()
         
         newPerson();
     
-        timer = game.time.events.add(Phaser.Timer.SECOND * TIMER_START, gameOver, this);
+        timer = game.time.events.add(Math.floor(Phaser.Timer.SECOND) * TIMER_START, gameOver, this);
 
        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
         
@@ -87,7 +87,7 @@ window.onload = function()
     
     function update() 
     {
-        timeText.text = '' + Math.floor(game.time.events.duration/1000);
+        timeText.text = '' + game.time.events.duration;
     //    if(ov)
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         if(numInjuries = 0)
