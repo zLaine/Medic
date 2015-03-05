@@ -22,7 +22,6 @@ window.onload = function()
     var numInjuries;
     var injuriesLeft;
     
-    var reunited;
     var x;
     var y;
     
@@ -45,7 +44,7 @@ window.onload = function()
         body = game.add.sprite(303, 50, 'body');
         
         //playing music
-        bgm = game.add.audio('reunited');
+        bgm = game.add.audio('bgm');
         bgm.loop = true;
         bgm.play();
         
