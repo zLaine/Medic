@@ -106,7 +106,7 @@ window.onload = function()
                     }
                 }
             }
-        } */
+        } 
         
       /*  if(overlap(injuries, bandages))
         {
