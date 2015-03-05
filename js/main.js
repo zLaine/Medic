@@ -82,7 +82,8 @@ window.onload = function()
         timer = game.time.events.add(Phaser.Timer.SECOND * TIMER_START, gameOver, this);
 
        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
-        
+       
+       overlap.call(injuries);
     }
     
     function update() 
@@ -90,7 +91,7 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(injuries.overlap(injuries, bandages))
+        if(overlap(injuries, bandages))
         {
             collisionHandler(injuries, bandages);
         }
