@@ -92,17 +92,19 @@ window.onload = function()
         timeText.text = '' + timeLeft;
         
         if(injuryArr[0] != 0)
-        for(var i = 0; i < 5; i++)
         {
-            for(var j = 0; j < 5; j++)
+            
+            for(var i = 0; i < 5; i++)
             {
-                if(overlap(injuryArr[i], bandageArr[i]))
+                for(var j = 0; j < 5; j++)
                 {
-                    collisionHandler(injuryArr[i], bandageArr[i]);
+                    if(overlap(injuryArr[i], bandageArr[i]))
+                    {
+                        collisionHandler(injuryArr[i], bandageArr[i]);
+                    }
                 }
             }
         }
-        
         
         /*if(overlap(injuries, bandages))
         {
