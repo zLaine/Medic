@@ -91,10 +91,22 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(overlap(injuries, bandages))
+        for(int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 5; j++)
+            {
+                if(overlap(injuryArr[i], bandageArr[i]))
+                {
+                    collisionHandler(injuryArr[i], bandageArr[i]);
+                }
+            }
+        }
+        
+        
+        /*if(overlap(injuries, bandages))
         {
             collisionHandler.call(injuries, injuries, bandages);
-        }
+        } */
 
         if(numInjuries <= 0)
         {
