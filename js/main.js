@@ -10,13 +10,16 @@ window.onload = function()
     const var TIMER = 30;
     const var SAVED_BONUS = 5;
     
-    var bandage;
+   // var bandage;
     var body;
-    var blood;
+ //   var blood;
     var background;
     var timeleft = TIMER;
     var peopleSaved = 0;
     var injuries;
+    var bandages;
+    var numInjuries;
+    var injuriesLeft;
     
     var reunited;
     var x;
@@ -29,7 +32,7 @@ window.onload = function()
         game.load.image('body', 'assets/body.png');
         game.load.image('BG', 'assets/medicBG.png');
         
-        game.load.audio('reunited', 'assets/Reunited1.mp3');
+        game.load.audio('bgm', 'assets/Reunited1.mp3');
     }
     
     
@@ -40,29 +43,23 @@ window.onload = function()
         background = game.add.sprite(0,0, 'BG');
         
         //playing music
-        reunited = game.add.audio('reunited');
-        reunited.loop = true;
-        reunited.play();
+        bgm = game.add.audio('reunited');
+        bgm.loop = true;
+        bgm.play();
         
         injuries = game.add.group();
-        game.physics.arcade.enable(people);
+        game.physics.arcade.enable(injuries);
         injuries.enableBody = true;
         injuries.physicsBodyType = Phaser.Physics.ARCADE;
-    //    people.body.allowRotation = false;
-    //    people.body.collideWorldBounds = true;
+        
+        bandages = game.add.group();
+        game.physics.arcade.enable(bandages);
+        bandages.enableBody = true;
+        bandages.physicsBodyType = Phaser.Physics.ARCADE;
         // allows mouse clicks
     //    background.events.onInputDown.add(arrowRelease, this);
         
-        for (var i = 0; i < 20; i++)
-        {
-            var injury = injuries.create(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'blood');
-            injury.name = 'injury' + i;
-            injury.body.immovable = true;
-            injury.inputEnabled = true;
-            //c.scale.set(2);
-            
-            injury.events.onInputDown.add(arrowRelease, this);
-        }
+        newPerson();
 
 
        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
@@ -71,12 +68,35 @@ window.onload = function()
     
     function update() 
     {
-        game.physics.arcade.collide(arrow, people, collisionHandler, null, this);
+        game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         
      }
      
+     function newPerson()
+     {
+        numInjuries = game.rnd.integerInRange(1, 5);
+        injuriesLeft = numInjuries;
+        
+         for (var i = 1; i < numInjuries; i++)
+        {
+            var injury = injuries.create(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'blood');
+            injury.name = 'injury' + i;
+            injury.body.immovable = true;
+            injury.inputEnabled = true;
+            //injury.scale.set(2);
+            
+            var bandage = bandages.create(100, 100, 'bandage');
+            bandage.name = 'bandage' + i;
+            bandage.body.immovable = false;
+            bandage.inputEnabled = true;
+            bandage.input.enableDrag(false, true);
+            //injury.scale.set(2);
+            
+        //    injury.events.onInputDown.add(arrowRelease, this);
+        }
+     }
      
-     function arrowRelease(target)
+ /*    function arrowRelease()
      {
         arrow = game.add.sprite(game.world.centerX, game.world.centerY, 'arrow');
         game.physics.arcade.enable(arrow);
@@ -93,41 +113,20 @@ window.onload = function()
         arrShoot = game.add.tween(arrow.scale);
         arrShoot.to({x: .25, y: .25}, 1000);
         arrShoot.start();
-     }
+     } */
      
-     function collisionHandler (arrow, people) 
+     function collisionHandler (injury, bandage) 
     {
-        if(people.frame == 12 || people.frame == 13 || people.frame == 14)
+        peopleSaved += 1;
+        injuriesLeft -= 1;
+        
+        injury.kill();
+        bandage.kill();
+        
+        if(injuriesLeft <= 0)
         {
-            cats++;
-            counter++;
+            newPerson();
         }
-        else
-        {
-            humans++;
-            counter++;
-        }
-        if(counter%2 == 0)
-        {
-            if(cats == 2)
-            {
-                kittens++;
-                cats = 0;
-            }
-            else if(humans == 2)
-            {
-                couples++;
-                humans = 0;
-            }
-            else if(cats == 1 && humans ==1)
-            {
-                catPeople++;
-                cats = 0;
-                humans = 0;
-            }
-        }
-        people.kill();
-        arrow.kill();
     }
      
 };
