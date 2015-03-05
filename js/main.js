@@ -171,11 +171,11 @@ window.onload = function()
         injuryArr[injuryIndex].destroy();
         bandageArr[bandageIndex].destroy();
         
-        if(injuriesLeft <= 0)
+      /*  if(injuriesLeft <= 0)
         {
             alert('newPerson in collisionHandler activated');
             newPerson();
-        }
+        } */
     }
     
     function overlap(spriteA, spriteB) 
