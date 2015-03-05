@@ -77,8 +77,16 @@ window.onload = function()
     {
         if(!game.physics.arcade.collide(injuries, body))
         {
-            injuries.kill();
-            bandages.kill();
+            injury1.kill();
+            injury2.kill();
+            injury3.kill();
+            injury4.kill();
+            injury5.kill();
+            bandage1.kill();
+            bandage2.kill();
+            bandage3.kill();
+            bandage4.kill();
+            bandage5.kill();
             newPerson();
         }
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
