@@ -91,7 +91,7 @@ window.onload = function()
             var injury = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
             x = injury.x;
             y = injury.y;
-            while(injury.x > 378 && injury.x < 426 && injury.y < 435)
+            while(injury.x > 378 && injury.x < 426 && injury.y > 435)
             {
                 injury.x = game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX);
                 injury.y = game.rnd.integerInRange(50, 595);
