@@ -101,6 +101,7 @@ window.onload = function()
                     if(overlap(injuryArr[i], bandageArr[j]))
                     {
                         alert(injuryArr[i]);
+                        alert(bandageArr[j]);
                         collisionHandler(injuryArr[i], bandageArr[j], i, j);
                     }
                 }
