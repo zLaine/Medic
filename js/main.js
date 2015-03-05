@@ -91,8 +91,8 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(injuryArr[0] != 0)
-        {
+ //       if(injuryArr[0] != 0)
+  //      {
             
             for(var i = 0; i < 5; i++)
             {
@@ -105,7 +105,7 @@ window.onload = function()
                     }
                 }
             }
-        }
+      //  }
         
         /*if(overlap(injuries, bandages))
         {
