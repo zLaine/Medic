@@ -114,7 +114,8 @@ window.onload = function()
         
          for (var i = 0; i < numInjuries; i++)
         {
-            injuryArr[i] = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
+            var injury = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
+            injuryArr[i] = injury;
             x = injuryArr[i].x;
             y = injuryArr[i].y;
             //makes sure injuries show up on the body and not between the legs etc
