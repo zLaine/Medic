@@ -100,7 +100,7 @@ window.onload = function()
                 {
                     if(overlap(injuryArr[i], bandageArr[j]))
                     {
-                        alert(injuryArr[i]);
+                        //alert(injuryArr[i]);
                         collisionHandler(injuryArr[i], bandageArr[j], i, j);
                     }
                 }
@@ -166,7 +166,7 @@ window.onload = function()
         
         savedText.text = '' + peopleSaved;
         
-        alert(injury.name);
+        //alert(injury.name);
         
         injuryArr[injuryIndex].destroy();
         bandageArr[bandageIndex].destroy();
