@@ -75,7 +75,7 @@ window.onload = function()
     
     function update() 
     {
-        if(!game.physics.arcade.collide(injuries, body))
+        if(!game.physics.arcade.collide(injuries, body) && injury1.exists)
         {
             injury1.kill();
             injury2.kill();
