@@ -89,8 +89,11 @@ window.onload = function()
     {
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
-    //    if(ov)
-        game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
+        if(overlap(injuries, bandages))
+        {
+            collisionHandler(injuries, bandages);
+        }
+    //    game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         if(numInjuries = 0)
         {
             newPerson();
@@ -166,6 +169,15 @@ window.onload = function()
         {
             newPerson();
         }
+    }
+    
+    function overlap(spriteA, spriteB) {
+
+    var boundsA = spriteA.getBounds();
+    var boundsB = spriteB.getBounds();
+
+    return Phaser.Rectangle.intersects(boundsA, boundsB);
+
     }
     
     function render() 
