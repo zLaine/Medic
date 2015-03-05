@@ -87,7 +87,8 @@ window.onload = function()
     
     function update() 
     {
-        timeText.text = '' + (int)game.time.events.duration/1000;
+        timeText.text = '' + TIMER_START - timer.seconds;
+        if(ov)
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         if(numInjuries = 0)
         {
@@ -110,6 +111,7 @@ window.onload = function()
             var injury = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
             x = injury.x;
             y = injury.y;
+            //makes sure injuries show up on the body and not between the legs etc
             while((injury.x > 378 && injury.x < 426 && injury.y > 435))
             {
                 injury.x = game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX);
