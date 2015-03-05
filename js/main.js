@@ -78,6 +78,10 @@ window.onload = function()
     function update() 
     {
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
+        if(numInjuries = 0)
+        {
+            newPerson();
+        }
         
     }
      
