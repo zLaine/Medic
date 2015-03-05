@@ -79,7 +79,7 @@ window.onload = function()
         
         newPerson();
     
-        timer = game.time.events.add(Math.floor(Phaser.Timer.SECOND) * TIMER_START, gameOver, this);
+        timer = game.time.events.add(Math.floor(Phaser.Timer.SECOND) * TIMER_START/1000, gameOver, this);
 
        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
         
