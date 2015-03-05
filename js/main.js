@@ -23,6 +23,8 @@ window.onload = function()
     var bandages;
     var numInjuries;
     var injuriesLeft;
+    var injuryArr;
+    var bandageArr;
     
     var style;
     var timeText;
@@ -94,8 +96,7 @@ window.onload = function()
             collisionHandler.call(injuries, injuries, bandages);
         }
 
-    //    game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
-        if(numInjuries = 0)
+        if(numInjuries <= 0)
         {
             newPerson();
         }
@@ -111,22 +112,22 @@ window.onload = function()
         numInjuries = game.rnd.integerInRange(1, 5);
         injuriesLeft = numInjuries;
         
-         for (var i = 1; i <= numInjuries; i++)
+         for (var i = 0; i < numInjuries; i++)
         {
-            var injury = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
-            x = injury.x;
-            y = injury.y;
+            injuryArr[i] = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
+            x = injuryArr[i].x;
+            y = injuryArr[i].y;
             //makes sure injuries show up on the body and not between the legs etc
-            while((injury.x > 378 && injury.x < 426 && injury.y > 435))
+            while((injuryArr[i].x > 378 && injuryArr[i].x < 426 && injuryArr[i].y > 435))
             {
-                injury.x = game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX);
-                injury.y = game.rnd.integerInRange(50, 595);
+                injuryArr[i].x = game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX);
+                injuryArr[i].y = game.rnd.integerInRange(50, 595);
             }
             
-            injury.name = 'injury' + i;
-            injury.body.immovable = true;
-            injury.inputEnabled = true;
-            injury.scale.set(.5);
+            injuryArr[i].name = 'injury' + i;
+            injuryArr[i].body.immovable = true;
+            injuryArr[i].inputEnabled = true;
+            injuryArr[i].scale.set(.5);
             
             var bandage = bandages.create(50, 50, 'bandage');
             bandage.name = 'bandage' + i;
@@ -138,25 +139,6 @@ window.onload = function()
         //    injury.events.onInputDown.add(arrowRelease, this);
         }
      }
-     
- /*    function arrowRelease()
-     {
-        arrow = game.add.sprite(game.world.centerX, game.world.centerY, 'arrow');
-        game.physics.arcade.enable(arrow);
-        arrow.enableBody = true;
-        arrow.physicsBodyType = Phaser.Physics.ARCADE;
-        arrow.body.allowRotation = false; 
-        arrow.scale.set(.9);
-        
-        x = game.input.mousePointer.x;
-        y = game.input.mousePointer.y;
-        arrow.rotation = game.physics.arcade.moveToXY(arrow, x, y, 120);
-        arrow.rotation = game.physics.arcade.angleBetween(arrow, target);
-        
-        arrShoot = game.add.tween(arrow.scale);
-        arrShoot.to({x: .25, y: .25}, 1000);
-        arrShoot.start();
-     } */
      
      function collisionHandler (injury, bandage) 
     {
