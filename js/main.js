@@ -110,7 +110,7 @@ window.onload = function()
         
         if(overlap(injuries, bandages))
         {
-            collisionHandler.call(injuries, injuries, bandages);
+            collisionHandler.call(injuryArr[i], injuryArr[i], i, j);
         } 
 
         if(numInjuries <= 0)
