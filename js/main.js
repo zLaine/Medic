@@ -47,16 +47,29 @@ window.onload = function()
         bgm = game.add.audio('bgm');
         bgm.loop = true;
    //     bgm.play();
+   
+        body.physics.arcade.enable(body);
+        body.enableBody = true;
+        body.physicsBodyType = Phaser.Physics.ARCADE;
+        body.body.immoveable = true;
+        body.inputEnabled = true;
         
         injuries = game.add.group();
         game.physics.arcade.enable(injuries);
         injuries.enableBody = true;
         injuries.physicsBodyType = Phaser.Physics.ARCADE;
+        injury.body.immovable = true;
+        injury.inputEnabled = true;
+        injury.scale.set(.5);
         
         bandages = game.add.group();
         game.physics.arcade.enable(bandages);
         bandages.enableBody = true;
         bandages.physicsBodyType = Phaser.Physics.ARCADE;
+        bandage.body.immovable = false;
+        bandage.inputEnabled = true;
+        bandage.input.enableDrag(false, true);
+        bandage.scale.set(.5);
         // allows mouse clicks
     //    background.events.onInputDown.add(arrowRelease, this);
         
@@ -69,6 +82,10 @@ window.onload = function()
     
     function update() 
     {
+        if(!game.physics.arcade.collide(injuries, body))
+        {
+            newPerson();
+        }
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         
     }
@@ -82,16 +99,9 @@ window.onload = function()
         {
             var injury = injuries.create(game.rnd.integerInRange(333, 468), game.rnd.integerInRange(50, 595), 'blood');
             injury.name = 'injury' + i;
-            injury.body.immovable = true;
-            injury.inputEnabled = true;
-            injury.scale.set(.5);
             
             var bandage = bandages.create(50, 50, 'bandage');
             bandage.name = 'bandage' + i;
-            bandage.body.immovable = false;
-            bandage.inputEnabled = true;
-            bandage.input.enableDrag(false, true);
-            bandage.scale.set(.5);
             
         //    injury.events.onInputDown.add(arrowRelease, this);
         }
