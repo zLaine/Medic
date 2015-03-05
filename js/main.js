@@ -7,30 +7,27 @@ window.onload = function()
     
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
 
-    var people;
-    var blkCat;
-    var arrow;
-    var reunited;
-    var map;
+    const var TIMER = 30;
+    const var SAVED_BONUS = 5;
+    
+    var bandage;
+    var body;
+    var blood;
     var background;
+    var timeleft = TIMER;
+    var peopleSaved = 0;
+    var injuries;
+    
+    var reunited;
     var x;
     var y;
-    var arrShoot;
-    var counter = 0;
-    var humans = 0;
-    var cats = 0;
-    var couples = 0;
-    var kittens = 0;
-    var catPeople = 0;
     
     function preload() 
     {
-        game.load.spritesheet('blkCat', 'assets/blkCatJump.png', 32, 32, 15);
-        game.load.spritesheet('characters', 'assets/characters.png', 37, 40, 15)
-        game.load.image('arrow', 'assets/arrowRight.png');
-        game.load.image('grass', 'assets/grass.png');
-        game.load.image('BG', 'assets/grassyBG.png');
-        game.load.tilemap('map', 'assets/vDayBG.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.image('blood', 'assets/blood.png');
+        game.load.image('bandage', 'assets/bandage.png');
+        game.load.image('body', 'assets/body.png');
+        game.load.image('BG', 'assets/medicBG.png');
         
         game.load.audio('reunited', 'assets/Reunited1.mp3');
     }
@@ -47,10 +44,10 @@ window.onload = function()
         reunited.loop = true;
         reunited.play();
         
-        people = game.add.group();
+        injuries = game.add.group();
         game.physics.arcade.enable(people);
-        people.enableBody = true;
-        people.physicsBodyType = Phaser.Physics.ARCADE;
+        injuries.enableBody = true;
+        injuries.physicsBodyType = Phaser.Physics.ARCADE;
     //    people.body.allowRotation = false;
     //    people.body.collideWorldBounds = true;
         // allows mouse clicks
@@ -58,32 +55,14 @@ window.onload = function()
         
         for (var i = 0; i < 20; i++)
         {
-            var c = people.create(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'characters', game.rnd.integerInRange(0, 14));
-            c.name = 'char' + i;
-            c.body.immovable = true;
-            c.inputEnabled = true;
-            c.scale.set(2);
+            var injury = injuries.create(game.rnd.integerInRange(100, 770), game.rnd.integerInRange(0, 570), 'blood');
+            injury.name = 'injury' + i;
+            injury.body.immovable = true;
+            injury.inputEnabled = true;
+            //c.scale.set(2);
             
-            c.events.onInputDown.add(arrowRelease, this);
+            injury.events.onInputDown.add(arrowRelease, this);
         }
-        
-        /*blkCat = game.add.sprite(32, game.world.height - 150, 'blkCat');
-        game.physics.arcade.enable(blkCat);
-        blkCat.body.bounce.y = 0.2;
-        blkCat.body.collideWorldBounds = true;
-        //girl.scale.set(2);*/
-        
-    /*    arrow = game.add.sprite(game.world.centerX, game.world.centerY, 'arrow');
-        game.physics.arcade.enable(arrow);
-        arrow.enableBody = true;
-        arrow.physicsBodyType = Phaser.Physics.ARCADE;
-        arrow.body.allowRotation = false; */
-        
-        
-        blkCat.animations.add('left', [0, 1, 2], 10, true);
-        blkCat.animations.add('right', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 10, true); 
-        
-       //blkCat.animations.play('right', 10, true);
 
 
        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
@@ -93,21 +72,9 @@ window.onload = function()
     function update() 
     {
         game.physics.arcade.collide(arrow, people, collisionHandler, null, this);
-        game.physics.arcade.collide(people, people);
         
      }
      
-     function arrowCreate()
-     {
-        arrow = game.add.sprite(game.world.centerX, game.world.centerY, 'arrow');
-        game.physics.arcade.enable(arrow);
-        arrow.enableBody = true;
-        arrow.physicsBodyType = Phaser.Physics.ARCADE;
-        arrow.body.allowRotation = false; 
-        arrow.scale.set(.25);
-        
-        arrow.events.onInputDown.add(arrowRelease, this);
-     }
      
      function arrowRelease(target)
      {
