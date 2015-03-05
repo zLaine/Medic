@@ -57,7 +57,7 @@ window.onload = function()
         //text set up
         style = { font: "20px Times New Roman", fill: "#000000", align: "left" };
         timeText = game.add.text(718, 60, '' + timeLeft, style);
-        savedText = game.add.text(752, 180, '' + peopleSaved, style);
+        savedText = game.add.text(752, 182, '' + peopleSaved, style);
    
         game.physics.arcade.enable(body);
         body.enableBody = true;
