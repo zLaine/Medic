@@ -33,7 +33,7 @@ window.onload = function()
         game.load.image('body', 'assets/body.png');
         game.load.image('BG', 'assets/medicBG.png');
         
-        game.load.audio('bgm', 'assets/Reunited1.mp3');
+        game.load.audio('bgm', 'assets/Reunited.mp3');
     }
     
     
