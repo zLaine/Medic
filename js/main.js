@@ -9,6 +9,8 @@ window.onload = function()
 
     var TIMER = 30;
     var SAVED_BONUS = 5;
+    var INJURY_RANGE_MIN = 333;
+    var INJURY_RANGE_MAX = 468;
     
    // var bandage;
     var body;
@@ -86,10 +88,15 @@ window.onload = function()
         
          for (var i = 1; i < numInjuries; i++)
         {
-            var injury = injuries.create(game.rnd.integerInRange(333, 468), game.rnd.integerInRange(50, 595), 'blood');
+            var injury = injuries.create(game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX), game.rnd.integerInRange(50, 595), 'blood');
             x = injury.x;
             y = injury.y;
-    //        for(int i = ; injury.x)
+            while(injury.x > 378 && injury.x < 426 && injury.y < 435)
+            {
+                injury.x = game.rnd.integerInRange(INJURY_RANGE_MIN, INJURY_RANGE_MAX);
+                injury.y = game.rnd.integerInRange(50, 595);
+            }
+            
             injury.name = 'injury' + i;
             injury.body.immovable = true;
             injury.inputEnabled = true;
