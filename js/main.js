@@ -17,7 +17,7 @@ window.onload = function()
     var bgm;
     
     var timer;
-    var timeLeft = TIMER_START;
+//    var timeLeft = TIMER_START;
     var peopleSaved = 0;
     var injuries;
     var bandages;
@@ -56,7 +56,7 @@ window.onload = function()
    
         //text set up
         style = { font: "20px Times New Roman", fill: "#000000", align: "left" };
-        timeText = game.add.text(718, 60, '' + timeLeft, style);
+        timeText = game.add.text(718, 60, '' + TIMER_START, style);
         savedText = game.add.text(752, 183, '' + peopleSaved, style);
    
         game.physics.arcade.enable(body);
@@ -87,8 +87,7 @@ window.onload = function()
     
     function update() 
     {
-        timeLeft = game.time.events.duration/1000;
-        timeText.text = '' + timeLeft;
+        timeText.text = '' + game.time.events.duration/1000;
     //    if(ov)
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         if(numInjuries = 0)
