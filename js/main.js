@@ -165,7 +165,7 @@ window.onload = function()
         
         savedText.text = '' + peopleSaved;
         
-        alert(this);
+        alert(injury.name);
         
         injury.destroy();
         bandage.destroy();
