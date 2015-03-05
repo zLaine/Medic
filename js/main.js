@@ -42,6 +42,7 @@ window.onload = function()
         game.world.setBounds(0, 0, 800, 600);
         game.physics.startSystem(Phaser.Physics.ARCADE);
         background = game.add.sprite(0,0, 'BG');
+        body = game.add.sprite(303, 50, 'body');
         
         //playing music
         bgm = game.add.audio('reunited');
