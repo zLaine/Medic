@@ -101,7 +101,7 @@ window.onload = function()
                     if(overlap(injuryArr[i], bandageArr[j]))
                     {
                         alert(injuryArr[i]);
-                        collisionHandler(injuryArr[i], bandageArr[j]);
+                        collisionHandler(injuryArr[i], bandageArr[j], i, j);
                     }
                 }
             }
@@ -159,7 +159,7 @@ window.onload = function()
         }
      }
      
-     function collisionHandler (injury, bandage) 
+     function collisionHandler (injury, bandage, injuryIndex, bandageIndex) 
     {
         peopleSaved += 1;
         injuriesLeft -= 1;
@@ -168,8 +168,8 @@ window.onload = function()
         
         alert(injury.name);
         
-        injury.destroy();
-        bandage.destroy();
+        injuryArr[injuryIndex].destroy();
+        bandageArr[bandageIndex].destroy();
         
         if(injuriesLeft <= 0)
         {
