@@ -90,7 +90,7 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(overlap(injuries, bandages))
+        if(injuries.overlap(injuries, bandages))
         {
             collisionHandler(injuries, bandages);
         }
@@ -166,7 +166,7 @@ window.onload = function()
         
         savedText.text = '' + peopleSaved;
         
-        var thisText = game.add.text(752, 203, '' + this, style);
+        var thisText = game.add.text(732, 213, '' + this, style);
         
         injury.destroy();
         bandage.destroy();
