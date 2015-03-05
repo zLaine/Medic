@@ -98,9 +98,10 @@ window.onload = function()
             {
                 for(var j = 0; j < 5; j++)
                 {
-                    if(overlap(injuryArr[i], bandageArr[i]))
+                    if(overlap(injuryArr[i], bandageArr[j]))
                     {
-                        collisionHandler(injuryArr[i], bandageArr[i]);
+                        alert(injuryArr[i]);
+                        collisionHandler(injuryArr[i], bandageArr[j]);
                     }
                 }
             }
