@@ -91,8 +91,8 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
- //       if(injuryArr[0] != 0)
-  //      {
+        if(bandageArr[0] != 0)
+        {
             
             for(var i = 0; i < 5; i++)
             {
@@ -105,7 +105,7 @@ window.onload = function()
                     }
                 }
             }
-      //  }
+        }
         
         /*if(overlap(injuries, bandages))
         {
@@ -134,6 +134,7 @@ window.onload = function()
             injuryArr[i] = injury;
             x = injuryArr[i].x;
             y = injuryArr[i].y;
+            
             //makes sure injuries show up on the body and not between the legs etc
             while((injuryArr[i].x > 378 && injuryArr[i].x < 426 && injuryArr[i].y > 435))
             {
