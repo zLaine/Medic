@@ -84,14 +84,14 @@ window.onload = function()
             injury.name = 'injury' + i;
             injury.body.immovable = true;
             injury.inputEnabled = true;
-            //injury.scale.set(2);
+            injury.scale.set(.5);
             
-            var bandage = bandages.create(100, 100, 'bandage');
+            var bandage = bandages.create(50, 50, 'bandage');
             bandage.name = 'bandage' + i;
             bandage.body.immovable = false;
             bandage.inputEnabled = true;
             bandage.input.enableDrag(false, true);
-            //injury.scale.set(2);
+            bandage.scale.set(.5);
             
         //    injury.events.onInputDown.add(arrowRelease, this);
         }
