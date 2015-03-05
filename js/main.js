@@ -162,8 +162,8 @@ window.onload = function()
         peopleSaved += 1;
         injuriesLeft -= 1;
         
-        injury.kill();
-        bandage.kill();
+        injury.destroy();
+        bandage.destroy();
         
         if(injuriesLeft <= 0)
         {
