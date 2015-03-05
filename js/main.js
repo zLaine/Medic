@@ -14,6 +14,7 @@ window.onload = function()
     var body;
  //   var blood;
     var background;
+    var bgm;
     var timeleft = TIMER;
     var peopleSaved = 0;
     var injuries;
