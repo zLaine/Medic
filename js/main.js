@@ -46,7 +46,7 @@ window.onload = function()
         //playing music
         bgm = game.add.audio('bgm');
         bgm.loop = true;
-        bgm.play();
+   //     bgm.play();
         
         injuries = game.add.group();
         game.physics.arcade.enable(injuries);
