@@ -17,7 +17,7 @@ window.onload = function()
     var bgm;
     
     var timer;
-    var timeLeft: int = TIMER_START;
+    var timeLeft = TIMER_START;
     var peopleSaved = 0;
     var injuries;
     var bandages;
