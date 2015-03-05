@@ -87,7 +87,7 @@ window.onload = function()
     
     function update() 
     {
-        timeText.text = '' + game.time.events.duration;
+        timeText.text = '' + game.time.events.duration/1000;
         game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         if(numInjuries = 0)
         {
