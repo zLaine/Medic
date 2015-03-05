@@ -48,7 +48,7 @@ window.onload = function()
         bgm.loop = true;
    //     bgm.play();
    
-        body.physics.arcade.enable(body);
+        game.physics.arcade.enable(body);
         body.enableBody = true;
         body.physicsBodyType = Phaser.Physics.ARCADE;
         body.body.immoveable = true;
