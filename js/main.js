@@ -89,9 +89,9 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(overlap.call(injuries, injuries, bandages))
+        if(overlap(injuries, bandages))
         {
-            collisionHandler(injuries, bandages);
+            collisionHandler.call(injuries, injuries, bandages);
         }
 
     //    game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
@@ -166,7 +166,6 @@ window.onload = function()
         savedText.text = '' + peopleSaved;
         
         alert(this);
-        var thisText = game.add.text(732, 213, '' + this, style);
         
         injury.destroy();
         bandage.destroy();
