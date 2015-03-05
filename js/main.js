@@ -90,26 +90,11 @@ window.onload = function()
         timeLeft = game.time.events.duration/1000;
         timeText.text = '' + timeLeft;
         
-        if(overlap(injury1, bandage))
+        if(overlap(injuries, bandages))
         {
-            collisionHandler(injury1, bandage);
+            collisionHandler(injuries, bandages);
         }
-        else if(overlap(injury2, bandage))
-        {
-            collisionHandler(injury2, bandage);
-        }
-        else if(overlap(injury3, bandage))
-        {
-            collisionHandler(injury3, bandage);
-        }
-        else if(overlap(injury4, bandage))
-        {
-            collisionHandler(injury4, bandage);
-        }
-        else if(overlap(injury5, bandage))
-        {
-            collisionHandler(injury5, bandage);
-        }
+
     //    game.physics.arcade.collide(injuries, bandages, collisionHandler, null, this);
         if(numInjuries = 0)
         {
