@@ -100,8 +100,6 @@ window.onload = function()
                 {
                     if(overlap(injuries, bandages))
                     {
-                        alert(injuryArr[i]);
-                        alert(bandageArr[j]);
                         collisionHandler(injuryArr[i], bandageArr[j], i, j);
                     }
                 }
@@ -115,6 +113,7 @@ window.onload = function()
 
         if(numInjuries <= 0)
         {
+            alert('newPerson in update activated');
             newPerson();
         }
         
@@ -167,7 +166,7 @@ window.onload = function()
         
         savedText.text = '' + peopleSaved;
         
-        alert(injury.name);
+        //alert(injury.name);
         
         injuryArr[injuryIndex].destroy();
         bandageArr[bandageIndex].destroy();
