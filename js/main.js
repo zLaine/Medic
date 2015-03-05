@@ -131,11 +131,12 @@ window.onload = function()
             injuryArr[i].scale.set(.5);
             
             var bandage = bandages.create(50, 50, 'bandage');
-            bandage.name = 'bandage' + i;
-            bandage.body.immovable = false;
-            bandage.inputEnabled = true;
-            bandage.input.enableDrag(false, true);
-            bandage.scale.set(.5);
+            bandageArr[i] = bandage;
+            bandageArr[i].name = 'bandage' + i;
+            bandageArr[i].body.immovable = false;
+            bandageArr[i].inputEnabled = true;
+            bandageArr[i].input.enableDrag(false, true);
+            bandageArr[i].scale.set(.5);
             
         //    injury.events.onInputDown.add(arrowRelease, this);
         }
